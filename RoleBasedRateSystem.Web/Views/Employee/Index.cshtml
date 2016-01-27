@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Entities.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeCreated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimeCreated)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>
+@*<form name="employeeForm" class="form-horizontal"novalidate>
+    <fieldset>
+        <legend>Employee Details</legend>
+        <div class="form-group">
+            <label class="control-label" for="FirstName">First Name:</label>
+            <div data-ng-class="has-error danger bg-danger">
+                <!--<label class="control-label" data-ng-show="employeeForm.FirstName.$invalid && employeeForm.FirstName.$dirty" for="FirstName">First name Input error</label>-->
+                <input id="FirstName"
+                       name="FirstName"
+                       type="text"
+                       class="form-control"
+                       placeholder="FirstName"
+                       required>
+                <label class="control-label" for="FirstName">First name is required</label>
+                <label class="control-label" for="FirstName">First name cannot be less than 1 character.</label>
+                <label class="control-label" for="FirstName">First name cannot be more than 40 characters.</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="LastName">Last Name:</label>
+            <div data-ng-class="has-error danger bg-danger">
+                <!--<label class="control-label" data-ng-show="employeeForm.FirstName.$invalid && employeeForm.FirstName.$dirty" for="FirstName">First name Input error</label>-->
+                <input id="LastName"
+                       name="LastName"
+                       type="text"
+                       class="form-control"
+                       placeholder="LastName"
+                       required>
+                <label class="control-label" for="LastName">Last name is required</label>
+                <label class="control-label" for="FirstName">Pattern for integers only</label>
+                <label class="control-label" for="LastName">Last name cannot be less than 1 character.</label>
+                <label class="control-label" for="LastName">Last name cannot be more than 40 characters.</label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="Address">Address:</label>
+            <div data-ng-class="has-error danger bg-danger">
+                <!--<label class="control-label" data-ng-show="employeeForm.Address.$invalid && employeeForm.Address.$dirty" for="Address">First name Input error</label>-->
+                <input id="Address"
+                       name="Address"
+                       type="text"
+                       class="form-control"
+                       placeholder="Address"
+                       required>
+                <!--<label class="control-label" data-ng-show="employeeForm.Address.$invalid && employeeForm.Address.$dirty" for="Address">Address is required</label>-->
+                <!--<label class="control-label" data-ng-show="employeeForm.Address.$error.minlength" for="Address">First name cannot be less than 1 character.</label>-->
+                <label class="control-label" for="Address">First name cannot be more than 40 characters.</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="Phone">Phone:</label>
+            <div class="has-error anger bg-danger">
+                <!--<label class="control-label" data-ng-show="employeeForm.Phone.$invalid && employeeForm.Phone.$dirty" for="Phone">First name Input error</label>-->
+                <input id="Phone"
+                       name="Phone"
+                       type="text"
+                       class="form-control"
+                       placeholder="Phone"
+                       required>
+                <!--<label class="control-label" data-ng-show="employeeForm.Phone.$invalid && employeeForm.Phone.$dirty" for="Phone">Phone is required</label>-->
+                <label class="control-label" for="Phone">First name cannot be less than 1 character.</label>
+                <label class="control-label" for="Phone">First name cannot be more than 40 characters.</label>
+                <label class="control-label" for="Phone">Please enter a valid phone number for your country.</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default" data-ng-click="viewModel.cancelFormViewClick()">Cancel</button>
+                <button type="submit"
+                        class="btn btn-primary">
+                    Save Employee Changes
+                </button>
+                <button type="submit"
+                        class="btn btn-primary">
+                    Save New Employee
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</form>*@

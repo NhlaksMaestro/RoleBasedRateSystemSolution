@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "UnAuthorized";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UnAuthorized User</h2>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-lg-12">
+            <div class="centering text-center">
+                <div class="text-center">
+                    <h2 class="without-margin">Don't worry. It's <span class="text-success"><big>404</big></span> error only.</h2>
+                    <h4 class="text-danger">User is not Authorized to Access Page.</h4>
+                </div>
+                <div class="text-center">
+                    <h3><small>&larr; @Html.ActionLink("Back Home", "Index", "Home", null, null)</small></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

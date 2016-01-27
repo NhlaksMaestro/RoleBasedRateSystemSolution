@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Entities.Employee>
+
+@{
+    ViewBag.Title = "Employees for Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees Working As @Model.FirstOrDefault().DepartmentRole.Name</h2>
+
+<div class="col-md-12 col-lg-12 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-muted bootstrap-admin-box-title">Employees</div>
+            <div class="pull-right"><span class="badge">@Model.Count()</span></div>
+        </div>
+        <div class="bootstrap-admin-panel-content">
+            <table class="table table-stripe">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateTimeCreated)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTimeCreated)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

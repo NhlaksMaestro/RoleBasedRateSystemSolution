@@ -1,0 +1,44 @@
+﻿@model RoleBasedRateSystem.Web.Models.ViewModels.MainViewModel
+@{
+    ViewBag.Title = "SearchEmployeesInRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees With Role</h2>
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Employees</div>
+                @*<div class="pull-right"><span class="badge">@Html.DisplayFor(model => model.Employee.Count)</span></div>*@
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @*<form class="form-inline " role="form">*@
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Employee.DepartmentId, "DepartmentRoleId", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10  col-lg-10 col-xs-10">
+                                @Html.DropDownList("DepartmentRoleId", String.Empty)
+                                @Html.ValidationMessageFor(model => model.Employee.DepartmentRoleId)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <input type="submit" value="Search For Employees" class="btn btn-default" />
+                                @*@Html.ActionLink("", "SalesExecutive", "Home", new { minRate = Model.MinimumRate, maxRate = Model.MaximumRate }, new { @class = "btn btn-lg btn-default" })*@
+                            </div>
+                        </div>
+                    </div>
+                    @*</form>*@
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @Html.Partial("SearchEmployeesInRolePartialView", Model.Employees);
+</div>

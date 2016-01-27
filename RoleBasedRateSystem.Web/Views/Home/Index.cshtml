@@ -1,0 +1,54 @@
+﻿@model RoleBasedRateSystem.Web.Models.ViewModels.MainViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+        @Html.ActionLink("Edit Profile", "Edit", "Employee", new { id = @Model.Employee.EmployeeId }, null)
+        <br>
+        <p class=" text-info">@DateTime.Now</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Employee.FirstName @Model.Employee.LastName</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">
+                        <img alt="User Pic" src="../../images/userimg3.png" class="img-circle img-responsive">
+                    </div>
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>Hire date:</td>
+                                    <td>@Model.Employee.DateTimeCreated</td>
+                                </tr>
+                                <tr>
+                                    <td>Home Address</td>
+                                    <td>@Model.Employee.Address</td>
+                                </tr>
+                                <tr>
+                                    <td>Department:</td>
+                                    <td>@Model.Employee.Department.Name</td>
+                                </tr>
+                                <tr>
+                                    <td>Department Role:</td>
+                                    <td>@Model.Employee.DepartmentRole.Name</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone Number</td>
+                                    <td>
+                                        @Model.Employee.Phone
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
